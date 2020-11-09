@@ -9,11 +9,14 @@ def game_manager
   
   define_method :next_turn do
     Turn.new
+    puts 
     puts "---------Turn#{Turn.count}----------"
+    puts 
 
     turn_number = Turn.count % 2
 
     next_question = Question.new
+
     if turn_number == 0
       current_player = 2
     else 
@@ -25,7 +28,7 @@ def game_manager
     if player_answer == next_question.answer
       puts "Player #{current_player}: Thats right, #{next_question.x} + #{next_question.y} = #{next_question.answer}"
     else 
-      puts "Player#{current_player}: Thats incorrect, #{next_question.x} + #{next_question.y} = #{next_question.answer}"
+      puts "Player #{current_player}: Thats incorrect, #{next_question.x} + #{next_question.y} = #{next_question.answer}"
       if current_player == 1
         player1.lives -= 1
       else 
@@ -33,17 +36,19 @@ def game_manager
       end
     end
   end 
+
   while player1.lives > 0 && player2.lives > 0
+    puts
     puts "P1 lives: #{player1.lives}/3 vs P2 lives: #{player2.lives}/3"
     next_turn
   end
 
   if player1.lives == 0
-    puts "Player 2 Wins!"
+    puts "Player 2 Wins! #{player2.lives} Lives remaining!"
   end
 
   if player2.lives == 0
-    puts "Player 1 Wins!"
+    puts "Player 1 Wins! #{player1.lives} Lives remaining!"
   end
 
 end
