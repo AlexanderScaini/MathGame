@@ -1,16 +1,19 @@
 class Turn 
-  attr_accessor :count
+  @@count = 0
 
   def initialize
-    @count = 1
+    @@count += 1
   end
-  
+
+  def self.count
+    @@count
+  end
+
+  def self.current
+    if @@count % 2 == 0
+      puts "Player 2" 
+    else 
+      puts "Player 1"
+    end
+  end 
 end
-
-new_turn = Turn.new
-puts new_turn.count
-new_turn.count += 1
-puts new_turn.count
-new_turn.count += 1
-puts new_turn.count
-
