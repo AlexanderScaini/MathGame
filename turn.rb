@@ -11,9 +11,9 @@ class Turn
 
   def self.current
     if @@count % 2 == 0
-      puts "Player 2" 
+      "Player 2" 
     else 
-      puts "Player 1"
+      "Player 1"
     end
   end 
 end

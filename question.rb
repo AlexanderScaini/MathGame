@@ -7,9 +7,4 @@ class Question
 
     @answer = x + y
   end
-
 end
-
-ok = Question.new
-puts "What is #{ok.x} + #{ok.y}?"
-puts ok.answer
